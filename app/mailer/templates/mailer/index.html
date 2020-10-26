@@ -10,6 +10,8 @@
 	$(document).ready(function(){
 		$("table tr").hover(function(){
 				$("table *").css("background-color", ""); // remove background color from everything (un-hover)
+				$("table *").css("color", '');
+				$("table *").css("font-weight", '');
 			hoveretr = this;
 		$("td:contains(.)").each(function(){
 
@@ -61,7 +63,10 @@
 						if($(elem).css("background-color"))
 							$(elem).css("background-color", ""); // remove background color
 
-						$(elem).css("background-color", 'green');
+
+						$(elem).css("background-color", '#88B04B');
+						$(elem).css("color", 'white');
+						$(elem).css("font-weight", 'bolder');
 						processchildrow(therow[0]);
 					});
 				}
@@ -78,7 +83,9 @@
 						if($(elem).css("background-color"))
 							$(elem).css("background-color", ""); // remove background color
 
-						$(elem).css("background-color", 'orange');
+						$(elem).css("background-color", '#EFC050');
+						$(elem).css("color", 'white');
+						$(elem).css("font-weight", 'bolder');
 					});
 				}
 			}
@@ -90,19 +97,19 @@
 	</script>
 </head>
 <body>
-	<div style="width:1020px; margin: 0 auto; border:1px solid blue;">
-	<table class="table">
+	<div style="max-width:1020px; margin: 0 auto;">
+	<table class="table table-bordered">
 	{% if is_paginated %}
-	<tr><td>
+	<tr style="border:none !important"><td>
 		{% if page_obj.has_previous %}
-		<a href="?page={{ page_obj.previous_page_number }}" class="pager-prev{% if not page_obj.has_previous %} inactive{% endif %}">&laquo;</a>
+		<a href="?page={{ page_obj.previous_page_number }}" class="pager-prev{% if not page_obj.has_previous %} inactive{% endif %}">&laquo; Prev</a>
 		{% endif %}
 		</td>
 		<td></td>
 		<td></td>
 		<td>
 		{% if page_obj.has_next %}
-			<a href="?page={{ page_obj.next_page_number }}" class="pager-next{% if not page_obj.has_next %} inactive{% endif %}">&raquo;</a>
+			<a href="?page={{ page_obj.next_page_number }}" class="pager-next{% if not page_obj.has_next %} inactive{% endif %}">Next &raquo;</a>
 		{% endif %}
 		</td>
 	</tr>
